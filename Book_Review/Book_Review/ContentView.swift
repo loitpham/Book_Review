@@ -29,6 +29,8 @@ struct PushButton: View {
 
 struct ContentView: View {
     @State private var rememberMe = false
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.horizontalSizeClass) var sizeClass
     
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -41,6 +43,27 @@ struct ContentView: View {
         VStack {
             PushButton(title: "Rember Me", isOn: $rememberMe)
             Text(rememberMe ? "On" : "Off")
+            
+            Text("hello")
+                .onTapGesture {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            
+            if sizeClass == .compact {
+                AnyView (
+                    VStack {
+                        Text("Active size class: COMPACT")
+                    }
+                    .font(.largeTitle)
+                )
+            } else {
+                AnyView (
+                    HStack {
+                        Text("Active size class: REGULAR")
+                    }
+                    .font(.largeTitle)
+                )
+            }
             
             List {
                 ForEach(items) { item in
