@@ -8,66 +8,32 @@
 import SwiftUI
 import CoreData
 
-struct PushButton: View {
-    let title: String
-    @Binding var isOn: Bool
-    
-    var onColors = [Color.red, Color.yellow]
-    var offColors = [Color(white: 0.6), Color(white: 0.4)]
-    
-    var body: some View {
-        Button(title) {
-            isOn.toggle()
-        }
-        .padding()
-        .background(LinearGradient(gradient: Gradient(colors: isOn ? onColors : offColors), startPoint: .top, endPoint: .bottom))
-        .foregroundColor(.white)
-        .clipShape(Capsule())
-        .shadow(radius: isOn ? 0 : 5)
-    }
-}
-
 struct ContentView: View {
-    @FetchRequest(entity: Student.entity(), sortDescriptors: []) var students: FetchedResults<Student>
+    @Environment(\.managedObjectContext) private var moc
+    @FetchRequest(entity: Book.entity(), sortDescriptors: []) var books: FetchedResults<Book>
     
-    @Environment(\.managedObjectContext) private var viewContext
-
-
+    @State private var showingAddScreen = false
+    
     var body: some View {
-        VStack {
-            
-            
-            List {
-                ForEach(students, id: \.id) { student in
-                    Text(student.name ?? "Unknown")
+        NavigationView {
+            Text("Count: \(books.count)")
+                .navigationBarTitle("Book Review")
+                .navigationBarItems(trailing: Button(action: { showingAddScreen.toggle()
+                }) {
+                    Image(systemName: "plus")
                 }
-                
-                
-                Button("Add") {
-                    let firstNames = ["Ginny", "Harry", "Hermione", "Luna", "Ron"]
-                    let lastNames = ["Granger", "Lovegood", "Potter", "Weasley"]
-                    
-                    let chosenFirstName = firstNames.randomElement()!
-                    let chosenLastName = lastNames.randomElement()!
-                    
-                    let student = Student(context: viewContext)
-                    student.id = UUID()
-                    student.name = "\(chosenFirstName) \(chosenLastName)"
-                    
-                    try? viewContext.save()
-                    
+                )
+                .sheet(isPresented: $showingAddScreen) {
+                    AddBookView().environment(\.managedObjectContext, moc)
                 }
-            }
-            
         }
     }
-
 }
 
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }

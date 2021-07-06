@@ -14,9 +14,13 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newStudent = Student(context: viewContext)
-            newStudent.id = UUID()
-            newStudent.name = "Test name"
+            let newBook = Book(context: viewContext)
+            newBook.id = UUID()
+            newBook.author = "Test author"
+            newBook.genre = "Fantasy"
+            newBook.title = "Test title"
+            newBook.rating = 3
+            newBook.review = "Test review"
         }
         do {
             try viewContext.save()
