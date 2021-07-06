@@ -15,6 +15,7 @@
 		1E470FAF2692D71D005940C5 /* Book_Review.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E470FAD2692D71D005940C5 /* Book_Review.xcdatamodeld */; };
 		1E900B082693E18F002056EF /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B072693E18F002056EF /* AddBookView.swift */; };
 		1E900B0A2693F036002056EF /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B092693F036002056EF /* RatingView.swift */; };
+		1E900B0C2693F5AF002056EF /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1E470FB02692D71D005940C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E900B072693E18F002056EF /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		1E900B092693F036002056EF /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				1E470FA22692D71C005940C5 /* Book_ReviewApp.swift */,
 				1E470FA42692D71C005940C5 /* ContentView.swift */,
 				1E900B092693F036002056EF /* RatingView.swift */,
+				1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */,
 				1E900B072693E18F002056EF /* AddBookView.swift */,
 				1E470FA62692D71D005940C5 /* Assets.xcassets */,
 				1E470FAB2692D71D005940C5 /* Persistence.swift */,
@@ -152,6 +155,7 @@
 			files = (
 				1E470FAF2692D71D005940C5 /* Book_Review.xcdatamodeld in Sources */,
 				1E470FAC2692D71D005940C5 /* Persistence.swift in Sources */,
+				1E900B0C2693F5AF002056EF /* EmojiRatingView.swift in Sources */,
 				1E470FA52692D71C005940C5 /* ContentView.swift in Sources */,
 				1E900B0A2693F036002056EF /* RatingView.swift in Sources */,
 				1E470FA32692D71C005940C5 /* Book_ReviewApp.swift in Sources */,
