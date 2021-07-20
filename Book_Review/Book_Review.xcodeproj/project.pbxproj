@@ -13,6 +13,7 @@
 		1E470FAA2692D71D005940C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E470FA92692D71D005940C5 /* Preview Assets.xcassets */; };
 		1E470FAC2692D71D005940C5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E470FAB2692D71D005940C5 /* Persistence.swift */; };
 		1E470FAF2692D71D005940C5 /* Book_Review.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E470FAD2692D71D005940C5 /* Book_Review.xcdatamodeld */; };
+		1E75EBCF26A6B09900B5AAD3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E75EBCE26A6B09900B5AAD3 /* DetailView.swift */; };
 		1E900B082693E18F002056EF /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B072693E18F002056EF /* AddBookView.swift */; };
 		1E900B0A2693F036002056EF /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B092693F036002056EF /* RatingView.swift */; };
 		1E900B0C2693F5AF002056EF /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */; };
@@ -27,6 +28,7 @@
 		1E470FAB2692D71D005940C5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1E470FAE2692D71D005940C5 /* Book_Review.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book_Review.xcdatamodel; sourceTree = "<group>"; };
 		1E470FB02692D71D005940C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E75EBCE26A6B09900B5AAD3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1E900B072693E18F002056EF /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		1E900B092693F036002056EF /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				1E900B0B2693F5AF002056EF /* EmojiRatingView.swift */,
 				1E900B072693E18F002056EF /* AddBookView.swift */,
 				1E470FA62692D71D005940C5 /* Assets.xcassets */,
+				1E75EBCE26A6B09900B5AAD3 /* DetailView.swift */,
 				1E470FAB2692D71D005940C5 /* Persistence.swift */,
 				1E470FB02692D71D005940C5 /* Info.plist */,
 				1E470FAD2692D71D005940C5 /* Book_Review.xcdatamodeld */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E470FAF2692D71D005940C5 /* Book_Review.xcdatamodeld in Sources */,
+				1E75EBCF26A6B09900B5AAD3 /* DetailView.swift in Sources */,
 				1E470FAC2692D71D005940C5 /* Persistence.swift in Sources */,
 				1E900B0C2693F5AF002056EF /* EmojiRatingView.swift in Sources */,
 				1E470FA52692D71C005940C5 /* ContentView.swift in Sources */,
