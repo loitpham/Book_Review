@@ -16,6 +16,13 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = ""
+    @State private var showingIncompleteAlert = false
+    
+    private var isValid: Bool {
+        return !(title.isEmpty || author.isEmpty || genre.isEmpty)
+    }
+    
+    private var message = "Please make sure to fill out title, author, and select a genre"
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
@@ -41,20 +48,28 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
-                        let newBook = Book(context: moc)
-                        newBook.title = title
-                        newBook.author = author
-                        newBook.rating = Int16(rating)
-                        newBook.genre = genre
-                        newBook.review = review
-                        
-                        try? moc.save()
-                        
-                        presentationMode.wrappedValue.dismiss()
+                        if isValid {
+                            let newBook = Book(context: moc)
+                            newBook.title = title
+                            newBook.author = author
+                            newBook.rating = Int16(rating)
+                            newBook.genre = genre
+                            newBook.review = review
+                            
+                            try? moc.save()
+                            
+                            presentationMode.wrappedValue.dismiss()
+                        } else {
+                            showingIncompleteAlert = true
+                        }
                     }
                 }
             }
             .navigationBarTitle("Add Book")
+            .alert(isPresented: $showingIncompleteAlert) {
+                Alert(title: Text("Missing info"), message: Text(message), dismissButton: .default(Text("OK")))
+            }
+            
         }
     }
 }
