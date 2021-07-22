@@ -15,6 +15,12 @@ struct DetailView: View {
     
     let book: Book
     
+    func getFormattedDate(date: Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        return dateformatter.string(from: date)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -35,6 +41,9 @@ struct DetailView: View {
                 Text(book.author ?? "Unknown author")
                     .font(.title)
                     .foregroundColor(.secondary)
+                
+                Text(getFormattedDate(date: book.date ?? Date()))
+                    .font(.body)
                 
                 Text(book.review ?? "No review")
                     .padding()
@@ -74,6 +83,7 @@ struct DetailView_Previews: PreviewProvider {
         book.genre = "Fantasy"
         book.rating = 4
         book.review = "This was a great book; I really enjoyed it."
+        book.date = Date()
         
         return NavigationView {
             DetailView(book: book)

@@ -31,6 +31,9 @@ struct ContentView: View {
                                     .foregroundColor(book.rating == 1 ? Color.red : Color.primary)
                                 Text(book.author ?? "Unknown author")
                                     .foregroundColor(.secondary)
+                                
+                                Text(getFormattedDate(date: book.date ?? Date()))
+                                    .foregroundColor(.secondary)
                             }
                     }
                 }
@@ -46,6 +49,12 @@ struct ContentView: View {
                     AddBookView().environment(\.managedObjectContext, moc)
                 }
         }
+    }
+    
+    func getFormattedDate(date: Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        return dateformatter.string(from: date)
     }
     
     func deleteBooks(at offsets: IndexSet) {

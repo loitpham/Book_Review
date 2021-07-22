@@ -18,6 +18,8 @@ struct AddBookView: View {
     @State private var review = ""
     @State private var showingIncompleteAlert = false
     
+    private var date = Date()
+    
     private var isValid: Bool {
         return !(title.isEmpty || author.isEmpty || genre.isEmpty)
     }
@@ -26,10 +28,17 @@ struct AddBookView: View {
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
+    func getFormattedDate(date: Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        return dateformatter.string(from: date)
+    }
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
+                    Text(getFormattedDate(date: date))
                     TextField("Name of book", text: $title)
                     TextField("Author's name", text: $author)
                     
@@ -55,6 +64,7 @@ struct AddBookView: View {
                             newBook.rating = Int16(rating)
                             newBook.genre = genre
                             newBook.review = review
+                            newBook.date = date
                             
                             try? moc.save()
                             
